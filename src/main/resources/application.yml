@@ -8,6 +8,18 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/PascalButterbach/config_server/
+          uri: https://github.com/PascalButterbach/config_server
           clone-on-start: true
-          skipSslValidation: true
+          search-paths: /configs
+          force-pull: true
+          default-label: master
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${eureka_url:http://192.168.0.69:8761/eureka/}
+  instance:
+    instance-id: ${spring.application.name}:${server.port}
+    hostname: ${eureka_host:localhost}
