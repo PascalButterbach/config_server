@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: CONFIG-SERVER
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/PascalButterbach/config_server
+          clone-on-start: true
+          search-paths: /configs
+          default-label: master
+        bootstrap: true
