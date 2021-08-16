@@ -1,17 +1,14 @@
 spring:
   profiles:
-    active: composite
+    active: git
   application:
     name: CONFIG-SERVER
   cloud:
     config:
       server:
-        composite:
-        -
-          type: git
+        git:
           uri: https://github.com/PascalButterbach/config_server
           clone-on-start: true
           search-paths: /configs
           default-label: master
-
         bootstrap: true
